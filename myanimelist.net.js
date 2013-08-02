@@ -5,7 +5,7 @@
 // @include        http://anidb.net/perl-bin/animedb.pl?show=anime&aid=*
 // @include        http://www.anime-planet.com/anime/*
 // @include        http://www.animenfo.com/animetitle*
-// @include        http://myanimelist.net/anime*
+// @include        http://myanimelist.net/anime/*
 // @include        http://myanimelist.net/manga*
 // @include        http://www.mangaupdates.com/series.html*
 // @include        http://vndb.org/v*
