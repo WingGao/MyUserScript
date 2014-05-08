@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       DownHighFlickr
 // @namespace  http://wingao.me/
-// @version    0.1
+// @version    0.2
 // @description  get high image form flickr.com
 // @match   https://*.flickr.com/photos/*
 // @match   http://*.flickr.com/photos/*
@@ -15,7 +15,8 @@ if (url.indexOf('/sizes/') > 0) {
     console.log('hello2');
 }
 else {
-    $.get(url + 'sizes/o/', function (data, d) {
+    url = window.location.href.split('/').slice(0, 6).join('/')
+    $.get(url + '/sizes/o/', function (data, d) {
         var html = $($.parseHTML(data));
         var photoDiv = html.children('#allsizes-photo').children('img')[0];
         var downDiv = document.createElement('a');
