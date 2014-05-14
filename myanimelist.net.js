@@ -21,7 +21,7 @@
 //v1.1 : Fixed VNDB includes. Visual novels now have a separate category. Added ErogeGames, Encubed and Visual-Novels.net
 
 // Converted with http://www.greywyvern.com/code/php/binary2base64:
-var ytimg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTElEQVR4nJ2SMUjDUBCGvxeLIDhI4+JsQGc3B9GhpdBRcHLPWJzEzdU6dunk4lSl1KGL2sVF1EEURaklTgUnYycFoe05vCQmNq3Rf7n/7r377967Q0TkoVaQ7fykiIhk7Krsn7clKQgISOdA278guP14VBAgqH5aygkgdvEqKBC2AwLvL4cCSLPblw+P+wnNbn+ogEFC7G2YPPVkIJ7yiVJKExEmZtY4KeVQSmEXL5kbU/SW15lPGWTsakRAeW39GylaLcgv+npAQj0Bji9QMpsWHPf7wDLDDYLz+iMWhf5Eazom2S8zGkbk4sISOK52HVf7eLxc0bxcgetnqJ0BoSlE4E/Eh2Vqkc0dyGa9YHuEwG+tB09VMQKNBpFPvbnVfr0Ou1tgKO3f3cPqip5C5/Mt6HzYVoT2DKWLMzWeRokIWGYobdguxMQdV30Bqesirj55WZIAAAAASUVORK5CYII%3D"; 
+var ytimg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTElEQVR4nJ2SMUjDUBCGvxeLIDhI4+JsQGc3B9GhpdBRcHLPWJzEzdU6dunk4lSl1KGL2sVF1EEURaklTgUnYycFoe05vCQmNq3Rf7n/7r377967Q0TkoVaQ7fykiIhk7Krsn7clKQgISOdA278guP14VBAgqH5aygkgdvEqKBC2AwLvL4cCSLPblw+P+wnNbn+ogEFC7G2YPPVkIJ7yiVJKExEmZtY4KeVQSmEXL5kbU/SW15lPGWTsakRAeW39GylaLcgv+npAQj0Bji9QMpsWHPf7wDLDDYLz+iMWhf5Eazom2S8zGkbk4sISOK52HVf7eLxc0bxcgetnqJ0BoSlE4E/Eh2Vqkc0dyGa9YHuEwG+tB09VMQKNBpFPvbnVfr0Ou1tgKO3f3cPqip5C5/Mt6HzYVoT2DKWLMzWeRokIWGYobdguxMQdV30Bqesirj55WZIAAAAASUVORK5CYII%3D";
 var katimg = "data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABMLAAATCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHUFLcyFLV74bO0UuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQEthLmNy+DVzhf81c4X/NXOF/ydUYdscPEUdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkTFeuN3WG/zh2iP84doj/OHaI/zh2iP84doj/M2t7/B9BS1IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlS1ecPHmM/zx5jP88eYz/WIyc/3OfrP9BfI//PHmM/zx5jP83b4D9IEFLPgAAAAAAAAAAAAAAAAAAAAAiQ0wzPXiJ/kB9j/9AfY//XZGg//b5+v//////4uvu/2iZp/9AfY//QH2P/zNkcu4AAAAAAAAAAAAAAAAAAAAAMl1q2UWBlP9FgZT/RYGU/73T2f///////f7+//L29//p8PL/RYGU/0WBlP9FgZT/KUxXgAAAAAAAAAAAJ0ZPHUeBk/9Khpj/SoaY/0qGmP/b5+r//////7vR2P9Khpj/bp6t/0qGmP9Khpj/SoaY/zlndOcAAAAAAAAAAC9SXIBPi53/T4ud/0+Lnf9Pi53/0eHm///////F2d//T4ud/0+Lnf9Pi53/T4ud/0+Lnf9Mhpf/KEZPEgAAAAA4YGu+VJCh/1SQof9UkKH/VJCh/8HX3f//////6/L0/1SQof9UkKH/VJCh/1SQof9UkKH/VJCh/y9QWVwAAAAAQGp31lmUpv9ZlKb/aZ6u/5u/yv/W5en////////////C2N//3urt/3Smtf9ZlKb/WZSm/1mUpv81WWOIAAAAAENseNRemar/Xpmq/3Wntv////////////////////////////////+VvMf/Xpmq/16Zqv9emar/OFtlhAAAAABCaHS+Y52v/2Odr/9nn7H/iLTC/4Kxv//0+Pn//////6zL1f9jna//Y52v/2Odr/9jna//Y52v/zdXYVwAAAAAPF5od2ehsv9nobL/Z6Gy/2ehsv9nobL/xtzi///////f6+//Z6Gy/2ehsv9nobL/Z6Gy/2Wdrv80UVoSAAAAADZTXBJkmqr+a6W2/2ultv9rpbb/a6W2/2ultv9rpbb/a6W2/2ultv9rpbb/a6W2/2ultv9SfovlAAAAAAAAAAAAAAAAS3J9xG+ouf9vqLn/XIuZ9GGTovpvqLn/b6i5/2+ouf9gkqD5Zpqp/W+ouf9vqLn/QWJsdwAAAAAAAAAAAAAAADtZYhdbipfxQWJrbgAAAAAAAAAAR2t2p2CRn/dBYmtuAAAAAAAAAABGanSgVH6L3wAAAAAAAAAA/j8AAPgPAADwBwAA4AMAAMADAADAAQAAgAEAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIABAADAAQAAxjMAAA%3D%3D";
 var glimg = "data:image/png;base64,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"
 var bbtimg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsSAAALEgHS3X78AAAA/UlEQVQ4jaWTvWvDMBTEf3IsTNHSriEQsgq3W5c0Y4b8ySl47VCaqRivIVC62osCRiHukLpIVlWoc5P0dHfvgyfBN17eHjr+gafHdwEgxohdEzFW3CMdBoxJqMqMw1568fnCovMWpc5ePBmKi60KxACHvaTYKozxJL5BVWZYKwCQsmO5OrJcHZHy0qW1gqrM4gZuZp23TGcnprMTOm9/5QQGLm7vLr029YQ0jc85GKKLpp5QPKu/KPEKmjr6FDeYL+zPuSozmiZB37deCy4HBi3ovOXzI8VagbWC3euNR5ay8wYaVKDUmfXGBFn6zOuNCRbp6lW+/jP1l7Hf+QvUIGINCCOr/QAAAABJRU5ErkJggg=="
@@ -51,137 +51,150 @@ var encimg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2
 var vnnimg = "data:image/x-icon;base64,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%3D";
 
 var searches = new Array();
-searches.push({alt:"Google", template:"https://www.google.co.jp/search?newwindow=1&q=%title%+字幕", img:glimg, tp:1});
-searches.push({alt:"Bitsnoop", template:"http://bitsnoop.com/search/all/%title%", img:bbtimg, tp:4});
-searches.push({alt:"NyaaTorrents", template:"http://www.nyaa.eu/?page=search&term=%title%", img:ntimg, tp:1});
-searches.push({alt:"Tokyo Toshokan", template:"http://www.tokyotosho.info/search.php?terms=%title%", img:ttimg, tp:1});
-searches.push({alt:"KickAssTorrents", template:"http://kickass.to/search/%title%/", img:katimg, tp:1});
-searches.push({alt:"FilesTube", template:"http://www.filestube.com/search.html?q=%title%", img:ftimg, tp:1});
-searches.push({alt:"RuTracker", template:"http://rutracker.org/forum/tracker.php?nm=%title%", img:rtimg, tp:1});
+searches.push({alt: "Google", template: "https://www.google.co.jp/search?newwindow=1&q=%title%+字幕", img: glimg, tp: 1});
+searches.push({alt: "Bitsnoop", template: "http://bitsnoop.com/search/all/%title%", img: bbtimg, tp: 4});
+searches.push({alt: "NyaaTorrents", template: "http://www.nyaa.eu/?page=search&term=%title%", img: ntimg, tp: 1});
+searches.push({alt: "Tokyo Toshokan", template: "http://www.tokyotosho.info/search.php?terms=%title%", img: ttimg, tp: 1});
+searches.push({alt: "KickAssTorrents", template: "http://kickass.to/search/%title%/", img: katimg, tp: 1});
+searches.push({alt: "FilesTube", template: "http://www.filestube.com/search.html?q=%title%", img: ftimg, tp: 1});
+searches.push({alt: "RuTracker", template: "http://rutracker.org/forum/tracker.php?nm=%title%", img: rtimg, tp: 1});
 //searches.push({alt:"Pornolab", template:"http://pornolab.net/forum/tracker.php?nm=%title%", img:plimg, tp:1});
-searches.push({alt:"Subs", template:"http://subs.com.ru/plug.php?e=search&a=search&pre=%title%", img:subimg, tp:4});
+searches.push({alt: "Subs", template: "http://subs.com.ru/plug.php?e=search&a=search&pre=%title%", img: subimg, tp: 4});
 
-searches.push({alt:"Mangafox", template:"http://mangafox.me/search.php?name_method=bw&name=%title%&type=&author_method=cw&author=&artist_method=cw&artist=&genres[Action]=0&genres[Adult]=0&genres[Adventure]=0&genres[Comedy]=0&genres[Doujinshi]=0&genres[Drama]=0&genres[Ecchi]=0&genres[Fantasy]=0&genres[Gender+Bender]=0&genres[Harem]=0&genres[Historical]=0&genres[Horror]=0&genres[Josei]=0&genres[Martial+Arts]=0&genres[Mature]=0&genres[Mecha]=0&genres[Mystery]=0&genres[One+Shot]=0&genres[Psychological]=0&genres[Romance]=0&genres[School+Life]=0&genres[Sci-fi]=0&genres[Seinen]=0&genres[Shoujo]=0&genres[Shoujo+Ai]=0&genres[Shounen]=0&genres[Shounen+Ai]=0&genres[Slice+of+Life]=0&genres[Smut]=0&genres[Sports]=0&genres[Supernatural]=0&genres[Tragedy]=0&genres[Webtoons]=0&genres[Yaoi]=0&genres[Yuri]=0&released_method=eq&released=&rating_method=eq&rating=&is_completed=&advopts=1", img:mfimg, tp:2});
-searches.push({alt:"MangaPanda", template:"http://www.mangapanda.com/search/?w=%title%", img:mpimg, tp:2});
-searches.push({alt:"MangaReader", template:"http://www.mangareader.net/search/?w=%title%", img:mrimg, tp:2});
-searches.push({alt:"AnimeA", template:"http://manga.animea.net/search.html?title=%title%", img:ntimg, tp:2});
-searches.push({alt:"MangaHere", template:"http://www.mangahere.com/search.php?name=%title%", img:mhimg, tp:2});
-searches.push({alt:"Batoto", template:"http://www.batoto.net/search?name=%title%", img:batimg, tp:2});
-searches.push({alt:"MangaDevil", template:"http://mangadevil.com/search?q=%title%", img:mdimg, tp:2});
-searches.push({alt:"Fakku", template:"http://www.fakku.net/search/%title%", img:fkimg, tp:2});
-searches.push({alt:"MangaChapter", template:"http://www.mangachapter.net/search.html?w=%title%", img:mcimg, tp:2});
+searches.push({alt: "Mangafox", template: "http://mangafox.me/search.php?name_method=bw&name=%title%&type=&author_method=cw&author=&artist_method=cw&artist=&genres[Action]=0&genres[Adult]=0&genres[Adventure]=0&genres[Comedy]=0&genres[Doujinshi]=0&genres[Drama]=0&genres[Ecchi]=0&genres[Fantasy]=0&genres[Gender+Bender]=0&genres[Harem]=0&genres[Historical]=0&genres[Horror]=0&genres[Josei]=0&genres[Martial+Arts]=0&genres[Mature]=0&genres[Mecha]=0&genres[Mystery]=0&genres[One+Shot]=0&genres[Psychological]=0&genres[Romance]=0&genres[School+Life]=0&genres[Sci-fi]=0&genres[Seinen]=0&genres[Shoujo]=0&genres[Shoujo+Ai]=0&genres[Shounen]=0&genres[Shounen+Ai]=0&genres[Slice+of+Life]=0&genres[Smut]=0&genres[Sports]=0&genres[Supernatural]=0&genres[Tragedy]=0&genres[Webtoons]=0&genres[Yaoi]=0&genres[Yuri]=0&released_method=eq&released=&rating_method=eq&rating=&is_completed=&advopts=1", img: mfimg, tp: 2});
+searches.push({alt: "MangaPanda", template: "http://www.mangapanda.com/search/?w=%title%", img: mpimg, tp: 2});
+searches.push({alt: "MangaReader", template: "http://www.mangareader.net/search/?w=%title%", img: mrimg, tp: 2});
+searches.push({alt: "AnimeA", template: "http://manga.animea.net/search.html?title=%title%", img: ntimg, tp: 2});
+searches.push({alt: "MangaHere", template: "http://www.mangahere.com/search.php?name=%title%", img: mhimg, tp: 2});
+searches.push({alt: "Batoto", template: "http://www.batoto.net/search?name=%title%", img: batimg, tp: 2});
+searches.push({alt: "MangaDevil", template: "http://mangadevil.com/search?q=%title%", img: mdimg, tp: 2});
+searches.push({alt: "Fakku", template: "http://www.fakku.net/search/%title%", img: fkimg, tp: 2});
+searches.push({alt: "MangaChapter", template: "http://www.mangachapter.net/search.html?w=%title%", img: mcimg, tp: 2});
 
-searches.push({alt:"ErogeGames", template:"http://erogegames.com/search.php?do=process&query=%title%", img:egimg, tp:5});
-searches.push({alt:"Encubed", template:"http://novelnews.net/?s=%title%", img:encimg, tp:5});
-searches.push({alt:"Visual-Novels.net", template:"http://visual-novels.net/vn/index.php?option=com_search&searchword=%title%&submit=Search&searchphrase=exact", img:vnnimg, tp:5});
+searches.push({alt: "ErogeGames", template: "http://erogegames.com/search.php?do=process&query=%title%", img: egimg, tp: 5});
+searches.push({alt: "Encubed", template: "http://novelnews.net/?s=%title%", img: encimg, tp: 5});
+searches.push({alt: "Visual-Novels.net", template: "http://visual-novels.net/vn/index.php?option=com_search&searchword=%title%&submit=Search&searchphrase=exact", img: vnnimg, tp: 5});
 
 
-searches.push({alt:"Wikipedia", template:"http://en.wikipedia.org/wiki/Special:Search?search=%title%", img:wpimg, tp:3});
+searches.push({alt: "Wikipedia", template: "http://en.wikipedia.org/wiki/Special:Search?search=%title%", img: wpimg, tp: 3});
 
-searches.push({alt:"YouTube", template:"http://www.youtube.com/results?search_query=%title%", img:ytimg, tp:4});
+searches.push({alt: "YouTube", template: "http://www.youtube.com/results?search_query=%title%", img: ytimg, tp: 4});
 
 var anidb, ap, an, man, vn, malma, manup;
-searches.push(anidb = {alt:"AniDB", template:"http://anidb.net/perl-bin/animedb.pl?show=animelist&adb.search=%title%", img:adimg, tp:1});
-searches.push(ap = {alt:"Anime-Planet", template:"http://www.anime-planet.com/search.php?search_type=all&search=%title%", img:apimg, tp:3});
-searches.push(an = {alt:"AnimeNfo", template:"http://www.animenfo.com/search.php?&queryin=anime_titles&option=keywords&query=%title%", img:animg, tp:1});
-searches.push(man = {alt:"MyAnimeList", template:"http://myanimelist.net/anime.php?q=%title%", img:malimg, tp:3});
-searches.push(vn = {alt:"VNDB", template:"http://vndb.org/v/all?sq=%title%", img:vnimg, tp:3});
-searches.push(malma = {alt:"MALManga", template:"http://myanimelist.net/manga.php?q=%title%", img:malimg, tp:1});
-searches.push(manup = {alt:"MangaUpdates", template:"http://www.mangaupdates.com/search.html?search=%title%", img:muimg, tp:2});
+searches.push(anidb = {alt: "AniDB", template: "http://anidb.net/perl-bin/animedb.pl?show=animelist&adb.search=%title%", img: adimg, tp: 1});
+searches.push(ap = {alt: "Anime-Planet", template: "http://www.anime-planet.com/search.php?search_type=all&search=%title%", img: apimg, tp: 3});
+searches.push(an = {alt: "AnimeNfo", template: "http://www.animenfo.com/search.php?&queryin=anime_titles&option=keywords&query=%title%", img: animg, tp: 1});
+searches.push(man = {alt: "MyAnimeList", template: "http://myanimelist.net/anime.php?q=%title%", img: malimg, tp: 3});
+searches.push(vn = {alt: "VNDB", template: "http://vndb.org/v/all?sq=%title%", img: vnimg, tp: 3});
+searches.push(malma = {alt: "MALManga", template: "http://myanimelist.net/manga.php?q=%title%", img: malimg, tp: 1});
+searches.push(manup = {alt: "MangaUpdates", template: "http://www.mangaupdates.com/search.html?search=%title%", img: muimg, tp: 2});
 
 var crcSearches = new Array();
-crcSearches.push({alt:"Tokyo Toshokan", template:"http://www.tokyotosho.info/search.php?terms=%crc%", img:ttimg});
-crcSearches.push({alt:"KickAssTorrents", template:"http://www.kickasstorrents.com/search/%crc%/", img:katimg});
-crcSearches.push({alt:"RuTracker", template:"http://rutracker.org/forum/tracker.php?nm=%crc%", img:rtimg});
+crcSearches.push({alt: "Tokyo Toshokan", template: "http://www.tokyotosho.info/search.php?terms=%crc%", img: ttimg});
+crcSearches.push({alt: "KickAssTorrents", template: "http://www.kickasstorrents.com/search/%crc%/", img: katimg});
+crcSearches.push({alt: "RuTracker", template: "http://rutracker.org/forum/tracker.php?nm=%crc%", img: rtimg});
 
 var sites = new Array();
-sites.push({alt:"AniDB", path:"//h1", url:"anidb", pattern:/Anime: (.*)/, search:anidb, postProcess:crcFunction});
-sites.push({alt:"Anime-Planet", path:"//h1", url:"anime-planet", pattern:/(.*)/, search:ap});
-sites.push({alt:"AnimeNfo", path:"//h1", pattern:/Anime : (.*)/, url:"animenfo", search:an});
-sites.push({alt:"MyAnimeList", path:"//div[@class='spaceit_pad'][1]", pattern:/<span class="dark_text">Japanese:<\/span>(.*)/, url:"myanimelist.net/anime", search:man});
-sites.push({alt:"VNDB", path:"//table",  url:"vndb", pattern:/<td>(.*?)<\/td>.*?/, search:vn});
-sites.push({alt:"MALManga", path:"//div[@id='contentWrapper']/h1", pattern:/<div.*div>(.*) <span/, url:"myanimelist.net/manga", search:malma});
-sites.push({alt:"MangaUpdates", path:"//span", url:"mangaupdates", pattern:/(.*)/, search:manup, postProcess:crcFunction});
+sites.push({alt: "AniDB", path: "//h1", url: "anidb", pattern: /Anime: (.*)/, search: anidb, postProcess: crcFunction});
+sites.push({alt: "Anime-Planet", path: "//h1", url: "anime-planet", pattern: /(.*)/, search: ap});
+sites.push({alt: "AnimeNfo", path: "//h1", pattern: /Anime : (.*)/, url: "animenfo", search: an});
+sites.push({alt: "MyAnimeList", path: "//div[@class='spaceit_pad'][1]", pattern: /<span class="dark_text">Japanese:<\/span>(.*)/, url: "myanimelist.net/anime", search: man});
+sites.push({alt: "VNDB", path: "//table", url: "vndb", pattern: /<td>(.*?)<\/td>.*?/, search: vn});
+sites.push({alt: "MALManga", path: "//div[@id='contentWrapper']/h1", pattern: /<div.*div>(.*) <span/, url: "myanimelist.net/manga", search: malma});
+sites.push({alt: "MangaUpdates", path: "//span", url: "mangaupdates", pattern: /(.*)/, search: manup, postProcess: crcFunction});
 
 function main() {
-	for(i = 0; site = sites[i]; ++i) if (location.href.match(site.url)) doSite(site);
-	populateMenu();
+    for (i = 0; site = sites[i]; ++i) if (location.href.alt(site.url)) doSite(site);
+    populateMenu();
 }
-function populateMenu()	{
-	for(i in searches) GM_registerMenuCommand("Toggle " + searches[i].alt + " link", toggleSearchFunction(searches[i]));	
+function populateMenu() {
+    for (i in searches) GM_registerMenuCommand("Toggle " + searches[i].alt + " link", toggleSearchFunction(searches[i]));
 }
-function toggleSearchFunction(search)	{
-	return function() {
-		var disabled = GM_getValue(alt = search.alt, false);
-		if(disabled) GM_deleteValue(search.alt); else GM_setValue(search.alt, true);
-		search.imgElement.style.display = disabled ? "inline" : "none";
-	}
+function toggleSearchFunction(search) {
+    return function () {
+        var disabled = GM_getValue(alt = search.alt, false);
+        if (disabled) GM_deleteValue(search.alt); else GM_setValue(search.alt, true);
+        search.imgElement.style.display = disabled ? "inline" : "none";
+    }
 }
 function doSite(site) {
-  x(site.path).appendChild(makeLinks(site));
-  if(f = site.postProcess) f();
+    x(site.path).appendChild(makeLinks(site));
+    if (f = site.postProcess) f();
 }
 // add some links for the crc on anidb
 function crcFunction() {
-  var episodeDiv = x("//div[@class='g_section episodes']");
-  episodeDiv.addEventListener("DOMNodeInserted", crcHandler, false);
+    var episodeDiv = x("//div[@class='g_section episodes']");
+    episodeDiv.addEventListener("DOMNodeInserted", crcHandler, false);
 }
 function crcHandler(event) {
-  if(event.target.getAttribute("class") != "filelist") return;
-  spans = xpath(".//span[@class='i_icon i_crc_yes']", event.target);
-  for(var i = 0; s = spans.snapshotItem(i); ++i) {
-    if(xpath("./span[@class='linkContainer']", s).snapshotLength > 0) return;
-    crc = s.getAttribute("title").match(/\((.*)\)/)[1];
-    s.parentNode.appendChild(document.createTextNode(" _ "));
-    s.parentNode.appendChild(makeLinks({}, crcSearches, crc));
-  }
+    if (event.target.getAttribute("class") != "filelist") return;
+    spans = xpath(".//span[@class='i_icon i_crc_yes']", event.target);
+    for (var i = 0; s = spans.snapshotItem(i); ++i) {
+        if (xpath("./span[@class='linkContainer']", s).snapshotLength > 0) return;
+        crc = s.getAttribute("title").match(/\((.*)\)/)[1];
+        s.parentNode.appendChild(document.createTextNode(" _ "));
+        s.parentNode.appendChild(makeLinks({}, crcSearches, crc));
+    }
 }
 // Create all the links and return a span containing them
 function makeLinks(site, _searches, _crc) {
-	var container = document.createElement("span");
-  container.setAttribute("class", "linkContainer");
-	var parameters = {title:getTitle(site), crc:_crc};
-	if (site.url == "myanimelist.net/anime" || site.url == "anidb" || site.url == "animenfo" || site.url == "anime-planet") {
-	for(j = 0; search = (if2(_searches, searches))[j]; ++j) if((search.tp == 1 || search.tp == 3 || search.tp == 4) && search != site.search) addLink(container, search, parameters); };
-	if (site.url == "vndb") {
-	for(j = 0; search = (if2(_searches, searches))[j]; ++j) if((search.tp == 1 || search.tp == 3 || search.tp == 5) && search != site.search) addLink(container, search, parameters); };
-	if (site.url == "myanimelist.net/manga" || site.url == "mangaupdates") {
-	for(j = 0; search = (if2(_searches, searches))[j]; ++j) if((search.tp == 2 || search.tp == 3) && search != site.search) addLink(container, search, parameters); };	
-	return container;
+    var container = document.createElement("span");
+    container.setAttribute("class", "linkContainer");
+    var parameters = {title: getTitle(site), crc: _crc};
+    if (site.url == "myanimelist.net/anime" || site.url == "anidb" || site.url == "animenfo" || site.url == "anime-planet") {
+        for (j = 0; search = (if2(_searches, searches))[j]; ++j) if ((search.tp == 1 || search.tp == 3 || search.tp == 4) && search != site.search) addLink(container, search, parameters);
+    }
+    ;
+    if (site.url == "vndb") {
+        for (j = 0; search = (if2(_searches, searches))[j]; ++j) if ((search.tp == 1 || search.tp == 3 || search.tp == 5) && search != site.search) addLink(container, search, parameters);
+    }
+    ;
+    if (site.url == "myanimelist.net/manga" || site.url == "mangaupdates") {
+        for (j = 0; search = (if2(_searches, searches))[j]; ++j) if ((search.tp == 2 || search.tp == 3) && search != site.search) addLink(container, search, parameters);
+    }
+    ;
+    return container;
 }
 // Return the title of the series in question.
 function getTitle(site) {
-	if(site.path) return extract(site.path).match(site.pattern)[1];
+    if (site.path) return extract(site.path).match(site.pattern)[1];
 }
 // Put the specified link in container. 
 function addLink(container, search, parameters) {
-	var a = document.createElement("a"); a.href = makeUrl(search, parameters);
-	var img = document.createElement("img"); img.src = search.img; img.alt = search.alt;
-	a.appendChild(img);
-	img.style.border = "none"; img.style.display = "inline"; a.style.border = "none"; a.target="_blank"; a.title=search.alt;
-	container.appendChild(document.createTextNode(" "));
-	container.appendChild(a);
-	search.imgElement = img;
-	search.aElement = a;
-	if (GM_getValue(search.alt, false)) img.style.display = "none";
+    var a = document.createElement("a");
+    a.href = makeUrl(search, parameters);
+    var img = document.createElement("img");
+    img.src = search.img;
+    img.alt = search.alt;
+    a.appendChild(img);
+    img.style.border = "none";
+    img.style.display = "inline";
+    a.style.border = "none";
+    a.target = "_blank";
+    a.title = search.alt;
+    container.appendChild(document.createTextNode(" "));
+    container.appendChild(a);
+    search.imgElement = img;
+    search.aElement = a;
+    if (GM_getValue(search.alt, false)) img.style.display = "none";
 }
 function makeUrl(search, parameters) {
-	var url = search.template;
-	for(p in parameters) url = url.replace('%'+p+'%', parameters[p])
-	return url;
+    var url = search.template;
+    for (p in parameters) url = url.replace('%' + p + '%', parameters[p])
+    return url;
 }
 function if2(x, y) {
-  return x ? x : y;
+    return x ? x : y;
 }
 // Extract innerHTML of path and replace some URI-unfriendly stuff.
 function extract(path, e) {
-	return x(path, e).innerHTML.replace("&amp;","%26");
+    return x(path, e).innerHTML.replace("&amp;", "%26");
 }
-function x(query, element) { 
-  return document.evaluate(query, if2(element, document), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue; 
+function x(query, element) {
+    return document.evaluate(query, if2(element, document), null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
 }
 // From Dive Into Greasemonkey:
 function xpath(query, element) {
-	return document.evaluate(query, if2(element, document), null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+    return document.evaluate(query, if2(element, document), null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
 }
 main();
