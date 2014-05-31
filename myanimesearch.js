@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Wing's Anime and Manga seeker
 // @description    Adds links to searches for Anime and Manga
-// @version 1.1
+// @version 1.2
 // @include        http://myanimelist.net/anime/*
 // @include        http://myanimelist.net/manga/*
 // ==/UserScript==
@@ -11,7 +11,7 @@ var searchs = [
     {name: 'NyaaTorrents', short: 'Nyaa', href: 'http://www.nyaa.se/?page=search&term=%s'},
     {name: 'KickAss', short: 'KA', href: 'http://kickass.to/usearch/%s'},
     {name: 'Google', short: 'GG', href: 'https://www.google.co.jp/search?q=%s+torrent&ie=UTF-8'},
-    {name: 'PPC', short: 'PPC', href: 'http://localhost/ppc/item/add?title=%t&url=%u&img=%i&type=anime'}
+    {name: 'PPC', short: 'PPC', href: 'http://localhost/ppc/item/add?title=%t&url=%u&img=%i&type=anime&r=1'}
 ];
 function getTitle(item) {
     var txt = item.innerText;
