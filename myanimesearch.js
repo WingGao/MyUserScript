@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Wing's Anime and Manga seeker
 // @description    Adds links to searches for Anime and Manga
-// @version 1.2
+// @version        1.3
 // @include        http://myanimelist.net/anime/*
 // @include        http://myanimelist.net/manga/*
 // ==/UserScript==
@@ -51,8 +51,10 @@ function getItems() {
 }
 
 function getPPC(href, title) {
-    var img = document.evaluate('//*[@id="content"]/table/tbody/tr/td[1]/div[1]/a/img');
-    img = img.iterateNext();
+    var img = document.evaluate('//*[@id="content"]/table/tbody/tr/td[1]/div[1]/a/img').iterateNext();
+    if (img == null) {
+        img = document.evaluate('//*[@id="content"]/table/tbody/tr/td[1]/div[1]/img').iterateNext();
+    }
     return href.replace('%t', encodeURIComponent(title)).replace('%u', encodeURIComponent(window.location.href))
         .replace('%i', encodeURIComponent(img.src));
 }
