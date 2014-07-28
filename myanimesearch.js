@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Wing's Anime and Manga seeker
 // @description    Adds links to searches for Anime and Manga
-// @version        1.4
+// @version        2.0
 // @include        http://myanimelist.net/anime/*
 // @include        http://myanimelist.net/manga/*
 // @include        http://anidb.net/perl-bin/animedb.pl?show=anime*
@@ -56,7 +56,7 @@ function createSearchItem(link, sitem, title) {
     var a = document.createElement('a');
     a.target = '_blank';
     if (s.short == 'PPC')a.href = getPPC(s.href, title);
-    else a.href = s.href.replace('%s', title);
+    else a.href = s.href.replace('%s', encodeURIComponent(title));
     a.title = s.name;
     a.innerText = s.short;
     link.appendChild(document.createTextNode('['));
@@ -90,7 +90,7 @@ function main() {
     switch (location.host) {
         case 'anidb.net':
             SETTING_ITEM = {
-                tpaths: ['//*[@id="tab_1_pane"]/div/table/tbody/tr[1]/td', '//*[@id="tab_1_pane"]/div/table/tbody/tr[2]/td'],
+                tpaths: ['//tr[contains(@class,"romaji") or contains(@class,"official")]/td'],
                 gettitle: getTitle_ADB,
                 img: getimg_ADB()
             };
