@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name           Wing's Anime and Manga seeker
 // @description    Adds links to searches for Anime and Manga
-// @version        2.1
+// @version        2.2
 // @include        http://myanimelist.net/anime/*
 // @include        http://myanimelist.net/manga/*
 // @include        http://anidb.net/perl-bin/animedb.pl?show=anime*
+// @include        http://www.dmm.co.jp/mono/*
 // ==/UserScript==
 var searchs = [
     {name: 'btdigg', short: 'BT', href: 'http://btdigg.org/search?q=%s'},
@@ -12,9 +13,96 @@ var searchs = [
     {name: 'NyaaTorrents', short: 'Nyaa', href: 'http://www.nyaa.se/?page=search&term=%s'},
     {name: 'KickAss', short: 'KA', href: 'http://kickass.to/usearch/%s'},
     {name: 'Google', short: 'GG', href: 'https://www.google.co.jp/search?q=%s+torrent&ie=UTF-8'},
-    {name: 'PPC', short: 'PPC', href: 'http://localhost/ppc/item/add?title=%t&url=%u&img=%i&type=anime&r=1'}
+    {name: 'PPC', short: 'PPC', href: 'http://django.wingao.me/ppc/item/add?title=%t&url=%u&img=%i&type=%p&r=1'}
 ];
 var SETTING_ITEM = {}
+
+function addSearch(item, title) {
+    var link = document.createElement('div');
+    for (var i = 0; i < searchs.length; i++) {
+        createSearchItem(link, searchs[i], title);
+    }
+    item.appendChild(link);
+}
+
+function createSearchItem(link, sitem, title) {
+    var s = sitem;
+    var a = document.createElement('a');
+    a.target = '_blank';
+    if (s.short == 'PPC')a.href = getPPC(s.href, title);
+    else a.href = s.href.replace('%s', encodeURIComponent(title));
+    a.title = s.name;
+    a.innerText = s.short;
+    link.appendChild(document.createTextNode('['));
+    link.appendChild(a);
+    link.appendChild(document.createTextNode('] '));
+}
+
+function getItems() {
+    for (var j = 0; j < SETTING_ITEM.tpaths.length; j++) {
+        var path = SETTING_ITEM.tpaths[j];
+        var divs = document.evaluate(path, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+        var div;
+        for (var i = 0; div = divs.snapshotItem(i); i++) {
+            addSearch(div, SETTING_ITEM.gettitle(div));
+        }
+    }
+
+}
+function getImg() {
+    if (SETTING_ITEM.imgXPath != undefined) {
+        return getFirstXPath(SETTING_ITEM.imgXPath)
+    } else
+        return SETTING_ITEM.img;
+}
+function getInnerText(item) {
+    return item.innerText;
+}
+function getFirstXPath(path) {
+    var divs = document.evaluate(path, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+    return divs.snapshotItem(0);
+}
+function getPPC(href, title) {
+    var img = getImg();
+    var url = href.replace('%t', encodeURIComponent(title)).replace('%u', encodeURIComponent(window.location.href))
+        .replace('%i', encodeURIComponent(img.src)).replace('%p', SETTING_ITEM.PPC_type);
+    if (SETTING_ITEM.authorXPath != undefined) {
+        url += '&author=' + encodeURIComponent(getFirstXPath(SETTING_ITEM.authorXPath).innerText);
+    }
+    return url;
+}
+function main() {
+    switch (location.host) {
+        case 'anidb.net':
+            SETTING_ITEM = {
+                tpaths: ['//tr[contains(@class,"romaji") or contains(@class,"official")]/td'],
+                gettitle: getTitle_ADB,
+                img: getimg_ADB(),
+                PPC_type: 'anime'
+            };
+            ed2k_ADB();
+            break;
+        case 'myanimelist.net':
+            SETTING_ITEM = {
+                tpaths: ["//div[@class='spaceit_pad' and ./span[@class='dark_text']]"],
+                gettitle: getTitle_MAL,
+                img: getimg_MAL()
+            };
+            getItem_MAL();
+            break;
+        case 'www.dmm.co.jp':
+            SETTING_ITEM = {
+                tpaths: ['//*[@id="title"]', '//*[@id="mu"]/div[1]/table/tbody/tr/td[1]/table/tbody/tr[10]/td[2]'],
+                gettitle: getInnerText,
+                imgXPath: '//img[contains(@id,"package-src-")]',
+                authorXPath: '//*[@id="mu"]/div[1]/table/tbody/tr/td[1]/table/tbody/tr[10]/td[2]',
+                PPC_type: 'av'
+            };
+            break;
+    }
+    getItems();
+}
+
 //start myanimallist
 function getTitle_MAL(item) {
     var txt = item.innerText;
@@ -27,6 +115,10 @@ function getimg_MAL() {
         img = document.evaluate('//*[@id="content"]/table/tbody/tr/td[1]/div[1]/img').iterateNext();
     }
     return img
+}
+function getItem_MAL() {
+    var al = document.getElementsByTagName('h2')[0];
+    addSearch(al, document.title.substr(0, document.title.lastIndexOf('-')));
 }
 // end myanimallist
 //start anidb
@@ -146,69 +238,5 @@ function ed2k_ADB() {
 }
 //end anidb
 
-function addSearch(item, title) {
-    var link = document.createElement('div');
-    for (var i = 0; i < searchs.length; i++) {
-        createSearchItem(link, searchs[i], title);
-    }
-    item.appendChild(link);
-}
-
-function createSearchItem(link, sitem, title) {
-    var s = sitem;
-    var a = document.createElement('a');
-    a.target = '_blank';
-    if (s.short == 'PPC')a.href = getPPC(s.href, title);
-    else a.href = s.href.replace('%s', encodeURIComponent(title));
-    a.title = s.name;
-    a.innerText = s.short;
-    link.appendChild(document.createTextNode('['));
-    link.appendChild(a);
-    link.appendChild(document.createTextNode('] '));
-}
-
-function getItems() {
-    for (var j = 0; j < SETTING_ITEM.tpaths.length; j++) {
-        var path = SETTING_ITEM.tpaths[j];
-        var divs = document.evaluate(path, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
-        var div;
-        for (var i = 0; div = divs.snapshotItem(i); i++) {
-            addSearch(div, SETTING_ITEM.gettitle(div));
-        }
-    }
-
-}
-
-function getItem_MAL() {
-    var al = document.getElementsByTagName('h2')[0];
-    addSearch(al, document.title.substr(0, document.title.lastIndexOf('-')));
-}
-
-function getPPC(href, title) {
-    var img = SETTING_ITEM.img;
-    return href.replace('%t', encodeURIComponent(title)).replace('%u', encodeURIComponent(window.location.href))
-        .replace('%i', encodeURIComponent(img.src));
-}
-function main() {
-    switch (location.host) {
-        case 'anidb.net':
-            SETTING_ITEM = {
-                tpaths: ['//tr[contains(@class,"romaji") or contains(@class,"official")]/td'],
-                gettitle: getTitle_ADB,
-                img: getimg_ADB()
-            };
-            ed2k_ADB();
-            break;
-        case 'myanimelist.net':
-            SETTING_ITEM = {
-                tpaths: ["//div[@class='spaceit_pad' and ./span[@class='dark_text']]"],
-                gettitle: getTitle_MAL,
-                img: getimg_MAL()
-            };
-            getItem_MAL();
-            break;
-    }
-    getItems();
-}
 
 main();
