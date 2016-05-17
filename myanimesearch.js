@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Wing's Anime and Manga seeker
 // @description    Adds links to searches for Anime and Manga
-// @version        2.2
+// @version        2.3
 // @include        http://myanimelist.net/anime/*
 // @include        http://myanimelist.net/manga/*
 // @include        http://anidb.net/perl-bin/animedb.pl?show=anime*
@@ -13,9 +13,13 @@ var searchs = [
     {name: 'NyaaTorrents', short: 'Nyaa', href: 'http://www.nyaa.se/?page=search&term=%s'},
     {name: 'KickAss', short: 'KA', href: 'http://kickass.to/usearch/%s'},
     {name: 'Google', short: 'GG', href: 'https://www.google.co.jp/search?q=%s+torrent&ie=UTF-8'},
-    {name: 'PPC', short: 'PPC', href: 'http://django.wingao.me/ppc/item/add?title=%t&url=%u&img=%i&type=%p&r=1'}
+    {
+        name: 'PPC',
+        short: 'PPC',
+        href: 'http://w.suamo-h5.com/PersonalCollection/item/add?title=%t&url=%u&img=%i&type=%p&r=1'
+    }
 ];
-var SETTING_ITEM = {}
+var SETTING_ITEM = {};
 
 function addSearch(item, title) {
     var link = document.createElement('div');
@@ -123,11 +127,13 @@ function getItem_MAL() {
 // end myanimallist
 //start anidb
 function getTitle_ADB(item) {
-    var txt = item.innerText;
-    var index = txt.lastIndexOf('(');
-    if (index > 0)
-        return txt.substr(0, index);
-    else return txt
+    for (var i = 0; i < item.children.length; i++) {
+        var x = item.children[i];
+        var itemprop = x.getAttribute('itemprop');
+        if (itemprop != null && itemprop.toLowerCase().indexOf('name') >= 0) {
+            return x.innerText;
+        }
+    }
 }
 function getimg_ADB() {
     var img = document.evaluate('//*[@id="layout-main"]/div[1]/div[1]/div[2]/div[1]/img').iterateNext();
@@ -233,7 +239,7 @@ function ed2k_ADB() {
         //updateStatus('');
         globalStatus.updateBarWithText('Done.', 100, 'Total progress: ');
         globalStatus.clearAfterTimeout('globalStatus', 1000);
-    }
+    };
     parseEpisodeData = old_parseEpisodeData;
 }
 //end anidb
