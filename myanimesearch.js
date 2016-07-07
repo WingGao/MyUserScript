@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Wing's Anime and Manga seeker
 // @description    Adds links to searches for Anime and Manga
-// @version        2.3
+// @version        2.4
 // @include        http://myanimelist.net/anime/*
 // @include        http://myanimelist.net/manga/*
 // @include        http://anidb.net/perl-bin/animedb.pl?show=anime*
@@ -136,7 +136,7 @@ function getTitle_ADB(item) {
     }
 }
 function getimg_ADB() {
-    var img = document.evaluate('//*[@id="layout-main"]/div[1]/div[1]/div[2]/div[1]/img').iterateNext();
+    var img = $('.info .image img')[0];
     return img
 }
 function ed2k_ADB() {
