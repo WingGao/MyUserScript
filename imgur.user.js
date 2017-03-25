@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       imgur.com
 // @namespace  https://github.com/WingGao/MyUserScript
-// @version    1.1
+// @version    1.2
 // @description  get bbs code
 // @match      *://imgur.com/a/*
 // @copyright  2017+, WingGao
@@ -19,7 +19,7 @@ Imgur.Gallery.EmbedBBS = React.createClass({
         var h = '';
         $('.post-grid-images .post-grid-image').each(function (i, v) {
             v = $(v);
-            h += '[img]http:' + v.attr('data-href') + '[/img]\n';
+            h += '[img]http:' + v.attr('data-href') + '[/img]\n\n';
         });
         return h;
     },
