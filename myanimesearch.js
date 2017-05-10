@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name           Wing's Anime and Manga seeker
 // @description    Adds links to searches for Anime and Manga
-// @version        2.4
+// @version        2.6
 // @include        http://myanimelist.net/anime/*
 // @include        http://myanimelist.net/manga/*
 // @include        http://anidb.net/perl-bin/animedb.pl?show=anime*
 // @include        http://www.dmm.co.jp/mono/*
 // ==/UserScript==
 var searchs = [
-    {name: 'btdigg', short: 'BT', href: 'http://btdigg.org/search?q=%s'},
+    {name: 'alicili', short: 'AL', href: 'http://alicili.org/list/%s/1-0-0/'},
     {name: 'bitsnoop', short: 'BS', href: 'http://bitsnoop.com/search/all/%s'},
     {name: 'NyaaTorrents', short: 'Nyaa', href: 'http://www.nyaa.se/?page=search&term=%s'},
     {name: 'KickAss', short: 'KA', href: 'http://kickass.to/usearch/%s'},
@@ -33,8 +33,13 @@ function createSearchItem(link, sitem, title) {
     var s = sitem;
     var a = document.createElement('a');
     a.target = '_blank';
-    if (s.short == 'PPC')a.href = getPPC(s.href, title);
-    else a.href = s.href.replace('%s', encodeURIComponent(title));
+    if (s.short == 'PPC') {
+        a.href = getPPC(s.href, title);
+    }else{
+        title = title.replace(/[~!\(\)\-]/g,' ');
+        var st = encodeURIComponent(title);
+        a.href = s.href.replace('%s', st);
+    }
     a.title = s.name;
     a.innerText = s.short;
     link.appendChild(document.createTextNode('['));
@@ -178,7 +183,7 @@ function ed2k_ADB() {
                 a_copy.onclick = function () {
                     var curAnime = animes[aid];
                     var fileNodes = epNodes[0].getElementsByTagName('file');
-                    var files = []
+                    var files = [];
                     for (var i = 0; i < fileNodes.length; i++) {
                         var v = new CFileEntry(fileNodes[i]);
                         if (v.type == 'video')
