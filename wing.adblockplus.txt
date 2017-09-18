@@ -1,2 +1,11 @@
+[Adblock Plus 2.0]
+! Checksum: gI4uoVkYdHKJdJ2Y1K228w
+! Version: 20170918
+! Title: Wing's list
+! For Wing's list
+! Last modified: 2017/09/18 16:24 +0800
+! Expires: 10 days
+! Homepage: https://github.com/WingGao/MyUserScript
+!
 ! 2017-09-18 http://mac-torrent-download.net/
 graphli.net^$script
