@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Wing's Anime and Manga seeker
 // @description    Adds links to searches for Anime and Manga
-// @version        2.6
+// @version        2.7
 // @include        http://myanimelist.net/anime/*
 // @include        http://myanimelist.net/manga/*
 // @include        http://anidb.net/perl-bin/animedb.pl?show=anime*
@@ -10,7 +10,7 @@
 var searchs = [
     {name: 'alicili', short: 'AL', href: 'http://alicili.org/list/%s/1-0-0/'},
     {name: 'bitsnoop', short: 'BS', href: 'http://bitsnoop.com/search/all/%s'},
-    {name: 'NyaaTorrents', short: 'Nyaa', href: 'http://www.nyaa.se/?page=search&term=%s'},
+    {name: 'NyaaTorrents', short: 'Nyaa', href: 'https://sukebei.nyaa.si/?f=0&c=0_0&q=%s'},
     {name: 'KickAss', short: 'KA', href: 'http://kickass.to/usearch/%s'},
     {name: 'Google', short: 'GG', href: 'https://www.google.co.jp/search?q=%s+torrent&ie=UTF-8'},
     {
