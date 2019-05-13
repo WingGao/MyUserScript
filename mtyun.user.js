@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         美团云优化
 // @namespace    http://tampermonkey.net/
 // @version      0.2
 // @description  try to take over the world!
