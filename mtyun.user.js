@@ -12,6 +12,6 @@
 
 (function() {
     WingWaitElement('#unitive-login-iframe',(jqIframe)=>{
-
+        $('.login-content-right').append(`<a href='${jqIframe.attr('src')}'>login</a>`);
     })
 })();
