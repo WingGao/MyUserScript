@@ -40,7 +40,10 @@ function GM_XHR() {
     return this.headers[name];
   };
 
-  this.send = function (data) {
+  this.getAllResponseHeaders = function () {
+    return this.headers
+  }
+  this.send = function (data, done) {
     this.data = data;
     var that = this;
     GM_xmlhttpRequest({
@@ -53,11 +56,15 @@ function GM_XHR() {
         for (k in rsp) {
           that[k] = rsp[k];
         }
+        that.response = rsp.response
+        that.statusText = that.responseText = rsp.responseText //转换错误
+        that.onload()
       },
       onerror: function (rsp) {
         for (k in rsp) {
           that[k] = rsp[k];
         }
+        that.onerror()
       },
       onreadystatechange: function (rsp) {
         for (k in rsp) {
@@ -69,8 +76,24 @@ function GM_XHR() {
 };
 
 // Tell jQuery to use the GM_XHR object instead of the standard browser XHR
-$ && $.ajaxSetup({
-  xhr: function () {
-    return new GM_XHR;
+if ($) {
+  $.ajaxSetup({
+    xhr: function () {
+      return new GM_XHR;
+    }
+  });
+  $.postJson = (url, data, cb) => {
+    return $.post(url, data, cb, 'json')
   }
-});
+}
+
+function WingGetReqErr(req) {
+  try {
+    let r = ''
+    if (req.statusText) r = req.statusText
+    let em = JSON.parse(r)
+    return em
+  } catch (e) {
+    return r
+  }
+}
