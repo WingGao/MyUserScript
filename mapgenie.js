@@ -15,7 +15,9 @@
 // @require https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js
 // @require http://127.0.0.1:7113/utils.js
 // ==/UserScript==
-
+unsafeWindow.MyServer = 'http://127.0.0.1:7112'
+unsafeWindow.Qs = Qs
+unsafeWindow.WingJq = $
 // 只支持firefox
 unsafeWindow.addEventListener('beforescriptexecute',
   function (event) {
@@ -26,22 +28,21 @@ unsafeWindow.addEventListener('beforescriptexecute',
 
     // script ends with 'originalscript.js' ?
     // you can test as well: '<full qualified url>' === originalScript.src
-    // if (/\/originalscript\.js$/.test(originalScript.src)) {
-    //   var replacementScript = document.createElement('script');
-    //   replacementScript.src = 'replacementscript.js';
-    //
-    //   originalScript.parentNode.replaceChild(replacementScript, originalScript);
-    //
-    //   // prevent execution of the original script
-    //   event.preventDefault();
-    // }
+    if (originalScript.src.indexOf('/js/map.js') >= 0) {
+      WingMain().then(()=>{
+        let replacementScript = document.createElement('script');
+        replacementScript.src = `${MyServer}/files/mapgenie.io_map.js`;
+        originalScript.parentNode.replaceChild(replacementScript, originalScript);
+      })
+      // prevent execution of the original script
+      event.preventDefault();
+    }
   }
 );
-(function () {
-  return
-  const MyServer = 'http://127.0.0.1:7112'
+
+var WingMain = (function () {
   let paths = window.location.pathname.split('/')
-  let info = {
+  unsafeWindow.WingGameInfo = {
     Game: paths[1],
     MapName: paths[3],
   }
@@ -51,30 +52,32 @@ unsafeWindow.addEventListener('beforescriptexecute',
   //     window._user = u
   //   }, get: () => window._user,
   // });
-  $.getJSON(MyServer + '/api/wgw/mapgenie/location?' + window.Qs.stringify(info)).done(res => {
-    console.log('my', res)
-    if (res.total == 0) {
-      // 同步到服务器
-      console.log('同步location', _.size(user.locations))
-      _.forEach(user.locations, (b, id) => {
-        if (b) {
-          $.post(MyServer + '/api/wgw/mapgenie/location', _.merge({
-            LocationId: parseInt(id),
-          }, info))
-        }
-      })
-    } else {
-      // 更新store
-      let foundLocations = _.reduce(res.items, (r, v, k) => {
-        r[v.LocationId] = true
-        return r
-      }, {})
-      store.getState().user.foundLocations = foundLocations
-      user.locations = foundLocations
-      user.hasPro = true
-    }
+  return new Promise(resolve => {
+    $.getJSON(MyServer + '/api/wgw/mapgenie/location?' + window.Qs.stringify(WingGameInfo)).done(res => {
+      console.log('my', res)
+      if (res.total == 0) {
+        // 同步到服务器
+        console.log('同步location', _.size(user.locations))
+        _.forEach(user.locations, (b, id) => {
+          if (b) {
+            $.post(MyServer + '/api/wgw/mapgenie/location', _.merge({
+              LocationId: parseInt(id),
+            }, WingGameInfo))
+          }
+        })
+      } else {
+        // 更新store
+        let foundLocations = _.reduce(res.items, (r, v, k) => {
+          r[v.LocationId] = true
+          return r
+        }, {})
+        // store.getState().user.foundLocations = foundLocations
+        user.locations = foundLocations
+        user.hasPro = true
+        resolve()
+      }
+    })
   })
-
 
   function alphabeticalSort(a, b) {
     return a.localeCompare(b);
@@ -103,4 +106,4 @@ unsafeWindow.addEventListener('beforescriptexecute',
   }
 
   // match()
-})()
+})
