@@ -13,9 +13,10 @@
 // @require https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.1/qs.min.js
 // @require https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // @require https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js
-// @require http://127.0.0.1:7113/utils.js
+// @require https://github.com/WingGao/MyUserScript/raw/master/utils.js
+// =require http://127.0.0.1:7113/utils.js
 // ==/UserScript==
-unsafeWindow.MyServer = 'http://127.0.0.1:7112'
+unsafeWindow.MyServer = `https://wgw.suamo.art`//'http://127.0.0.1:7112'
 unsafeWindow.Qs = Qs
 unsafeWindow.WingJq = $
 // 只支持firefox
